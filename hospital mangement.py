@@ -1,8 +1,8 @@
 
+
 import mysql.connector
 from tabulate import tabulate
 l=[]
-
 
 
 def myconnection():
