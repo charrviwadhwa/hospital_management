@@ -8,6 +8,7 @@ l=[]
 def myconnection():
     con=mysql.connector.connect(host ='localhost', database='hs', user='root', passwd='dav')
     return con
+    
 
 con=myconnection()
 cur=con.cursor()
