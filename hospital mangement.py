@@ -4,7 +4,6 @@ from tabulate import tabulate
 l=[]
 
 
-
 def myconnection():
     con=mysql.connector.connect(host ='localhost', database='hs', user='root', passwd='dav')
     return con
