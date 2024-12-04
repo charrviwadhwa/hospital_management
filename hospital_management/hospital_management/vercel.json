@@ -11,17 +11,8 @@
         "src": "/(.*)",
         "dest": "/hospital_management/hospital_management/hospital_management/manage.py"  
       }
-    ],
-    "env": {
-    "DJANGO_SECRET_KEY": "your-secret-key-here",
-    "DATABASE_URL": "postgres://username:password@hostname:5432/dbname",
-    "ALLOWED_HOSTS": "your-vercel-app-name.vercel.app",
-    "DEBUG": "False",
-    "STATIC_URL": "/static/",
-    "STATIC_ROOT": "/path/to/staticfiles",
-    "MEDIA_URL": "/media/",
-    "MEDIA_ROOT": "/path/to/mediafiles",
-    "SESSION_COOKIE_SECURE": "True"
-  }
+    ]
+    
+  
   }
   
