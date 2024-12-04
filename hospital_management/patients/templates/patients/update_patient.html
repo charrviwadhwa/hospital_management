@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Patient</title>
+    <link rel="stylesheet" href="{% static 'patients/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Hospital Patient Management</h1>
+        <nav>
+            <a href="{% url 'patient_list' %}">Home</a> |
+            <a href="{% url 'create_patient' %}">Add Patient</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Update Patient Information</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="id" value="{{ patient.pid }}">
+            
+            <label for="pname">Name:</label>
+            <input type="text" id="pname" name="pname" value="{{ patient.pname }}" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender">
+                <option value="Male" {% if patient.gender == 'Male' %} selected {% endif %}>Male</option>
+                <option value="Female" {% if patient.gender == 'Female' %} selected {% endif %}>Female</option>
+                <option value="Other" {% if patient.gender == 'Other' %} selected {% endif %}>Other</option>
+            </select>
+
+            <label for="fee">Fee:</label>
+            <input type="number" id="fee" name="fee" value="{{ patient.fee }}" required>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" value="{{ patient.age }}" required>
+
+            <label for="ward">Ward:</label>
+            <input type="text" id="ward" name="ward" value="{{ patient.ward }}" required>
+
+            <label for="disease">Disease:</label>
+            <input type="text" id="disease" name="disease" value="{{ patient.disease }}" required>
+
+            <button type="submit">Update Patient</button>
+        </form>
+    </div>
+</body>
+</html>

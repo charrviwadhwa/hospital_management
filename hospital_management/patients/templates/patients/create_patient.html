@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Patient</title>
+    <link rel="stylesheet" href="{% static 'patients/css/style.css' %}">>
+</head>
+<body>
+    <header>
+        <h1>Hospital Patient Management</h1>
+        <nav>
+            <a href="{% url 'patient_list' %}">Home</a> |
+            <a href="{% url 'create_patient' %}">Add Patient</a>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <h2>Add New Patient</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="pname">Name:</label>
+            <input type="text" id="pname" name="pname" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label for="fee">Fee:</label>
+            <input type="number" id="fee" name="fee" required>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+
+            <label for="ward">Ward:</label>
+            <input type="text" id="ward" name="ward" required>
+
+            <label for="disease">Disease:</label>
+            <input type="text" id="disease" name="disease" required>
+
+            <button type="submit">Add Patient</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Hospital Management</title>
+    <link rel="stylesheet" href="{% static 'patients/css/style.css' %}">  <!-- Link to your static CSS file -->
+</head>
+<body>
+    <header>
+        <h1>Welcome to Hospital Management System</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'patient_list' %}">Patient List</a></li>  <!-- Example link -->
+                <li><a href="{% url 'admin:index' %}">Admin Panel</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Overview</h2>
+            <p>Welcome to the hospital management system. Here, you can manage patient records, view hospital information, and more.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Hospital Management System</p>
+    </footer>
+</body>
+</html>

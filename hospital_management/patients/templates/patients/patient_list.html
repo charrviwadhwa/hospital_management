@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient List</title>
+    <link rel="stylesheet" href="{% static 'patients/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Hospital Patient Management</h1>
+        <nav>
+            <a href="{% url 'patient_list' %}">Home</a> |
+            <a href="{% url 'create_patient' %}">Add Patient</a>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <h2>All Patients</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Patient ID</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Fee</th>
+                    <th>Age</th>
+                    <th>Ward</th>
+                    <th>Disease</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for patient in patients %}
+                <tr>
+                   
+                    <td>{{ patient.pname }}</td>
+                    <td>{{ patient.gender }}</td>
+                    <td>{{ patient.fee }}</td>
+                    <td>{{ patient.age }}</td>
+                    <td>{{ patient.ward }}</td>
+                    <td>{{ patient.disease }}</td>
+                    <td>
+                        <a href="{% url 'update_patient' patient.pid %}">Edit</a> |
+                        <a href="{% url 'delete_patient' patient.pid %}" onclick="return confirm('Are you sure?')">Delete</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="8">No patients found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
