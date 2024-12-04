@@ -90,7 +90,7 @@ WSGI_APPLICATION = 'hospital_management.wsgi.application'
 # }
 DATABASES = {
     'default': dj_database_url.config(
-        default=config('DATABASE_URL', default='mysql://users:hs123*@localhost:3306/hs')
+        default='mysql://users:hs123*@localhost:3306/hs'  # Replace with actual DATABASE_URL from Vercel env variables
     )
 }
 
@@ -146,16 +146,16 @@ DEBUG = os.getenv('DEBUG', 'False') == 'True'
 #ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost').split(',')
 
 # Database Configuration
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',  # Ensure this is correct
-        'NAME': 'hs',  # Replace with your database name
-        'USER': 'users',  # Replace with your MySQL username
-        'PASSWORD': 'hs123*',  # Replace with your MySQL password
-        'HOST': 'localhost',  # 'localhost' for local development
-        'PORT': '3306',  # The default MySQL port
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',  # Ensure this is correct
+#         'NAME': 'hs',  # Replace with your database name
+#         'USER': 'users',  # Replace with your MySQL username
+#         'PASSWORD': 'hs123*',  # Replace with your MySQL password
+#         'HOST': 'localhost',  # 'localhost' for local development
+#         'PORT': '3306',  # The default MySQL port
+#     }
+# }
 
 
 # Static Files
