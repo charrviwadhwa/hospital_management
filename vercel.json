@@ -2,14 +2,18 @@
     "version": 2,
     "builds": [
       {
-        "src": "hospital_management/hospital_management/manage.py",  
+        "src": "hospital_management/manage.py",  
         "use": "@vercel/python"
+      },
+      {
+        "src": "static/*",
+        "use": "@vercel/static"
       }
     ],
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "/hospital_management/hospital_management/manage.py"  
+        "dest": "hospital_management/manage.py"  
       }
     ]
     
