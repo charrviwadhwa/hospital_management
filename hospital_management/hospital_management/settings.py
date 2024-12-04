@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = 'django-insecure-fr70@13wv*7z&l00rkw8axk-6_++o*xyu+%s19=7#(!cp%4b7$'
+SECRET_KEY = 'welcome'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = True
@@ -137,18 +137,26 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
+#SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 # Debug (set to False in production)
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 # Allowed Hosts (for production)
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost').split(',')
+#ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost').split(',')
 
 # Database Configuration
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',  # Ensure this is correct
+        'NAME': 'hs',  # Replace with your database name
+        'USER': 'users',  # Replace with your MySQL username
+        'PASSWORD': 'hs123*',  # Replace with your MySQL password
+        'HOST': 'localhost',  # 'localhost' for local development
+        'PORT': '3306',  # The default MySQL port
+    }
 }
+
 
 # Static Files
 STATIC_URL = os.getenv('STATIC_URL', '/static/')
