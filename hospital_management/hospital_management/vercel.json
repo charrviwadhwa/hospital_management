@@ -2,14 +2,14 @@
     "version": 2,
     "builds": [
       {
-        "src": "hospital_management/wsgi.py",  
+        "src": "hospital_management/hospital_management/wsgi.py",  
         "use": "@vercel/python"
       }
     ],
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "/hospital_management/wsgi.py"  
+        "dest": "/hospital_management/hospital_management/wsgi.py"  
       }
     ],
     "env": {
